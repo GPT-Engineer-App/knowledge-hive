@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack, Button, Input, FormControl, FormLabel, Select, Grid, GridItem, Flex, Link } from '@chakra-ui/react';
+import { Box, Heading, VStack, Button, Input, FormControl, FormLabel, Select, Grid, GridItem, Flex, Link, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -11,8 +11,14 @@ const KnowledgeBase = () => {
     console.log(`Creating ${type} knowledge base: ${name}`);
   };
 
+  const courses = [
+    { title: 'Basic Knowledge', description: 'Introduction to basic concepts.' },
+    { title: 'Intermediate Knowledge', description: 'Intermediate level topics.' },
+    { title: 'Advanced Knowledge', description: 'Advanced concepts and techniques.' },
+  ];
+
   return (
-    <Flex p={4} bgImage="url('/path/to/background.jpg')" bgSize="cover" bgPosition="center">
+    <Flex p={4}>
       <Box w="20%" p={4} bg="white" boxShadow="md" borderRadius="md">
         <Heading fontSize="xl" mb={4} color="teal.500">Navigation</Heading>
         <VStack align="start" spacing={2}>
@@ -22,7 +28,15 @@ const KnowledgeBase = () => {
         </VStack>
       </Box>
       <Box w="80%" p={4} ml={4} bg="white" boxShadow="md" borderRadius="md">
-        <Heading fontSize="3xl" color="teal.500" textShadow="1px 1px 2px rgba(0, 0, 0, 0.2)">Create Knowledge Base</Heading>
+        <Heading fontSize="3xl" color="teal.500" textShadow="1px 1px 2px rgba(0, 0, 0, 0.2)">Knowledge Base</Heading>
+        <Grid templateColumns="repeat(3, 1fr)" gap={6} mt={4}>
+          {courses.map((course, index) => (
+            <GridItem key={index} p={4} bg="white" borderRadius="md" boxShadow="md" _hover={{ transform: 'scale(1.05)', transition: '0.3s', boxShadow: 'lg' }}>
+              <Heading size="md" fontSize="2xl">{course.title}</Heading>
+              <Text mt={4} fontSize="lg" lineHeight="tall">{course.description}</Text>
+            </GridItem>
+          ))}
+        </Grid>
         <Grid templateColumns="repeat(2, 1fr)" gap={6} mt={4}>
           <GridItem colSpan={2}>
             <FormControl id="name">
