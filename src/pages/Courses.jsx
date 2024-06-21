@@ -30,8 +30,8 @@ const Courses = () => {
   ];
 
   return (
-    <Box p={4} bgImage="url('/images/knowledge-sharing.jpg')" bgSize="cover" bgPosition="center">
-      <Heading fontSize="4xl" color="white" textShadow="1px 1px 2px rgba(0, 0, 0, 0.7)">
+    <Box p={4}>
+      <Heading fontSize="4xl" color="teal.500" textShadow="1px 1px 2px rgba(0, 0, 0, 0.7)">
         Courses
       </Heading>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} mt={6}>
