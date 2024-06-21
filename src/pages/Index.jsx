@@ -40,6 +40,57 @@ const Index = () => {
         </SimpleGrid>
       </Container>
 
+      {/* Featured Courses Section */}
+      <Container maxW="container.xl" py={10}>
+        <Heading textAlign="center" mb={6}>Featured Courses</Heading>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+          <Box textAlign="center">
+            <Image src={featureImage1} alt="Course 1" boxSize="150px" mx="auto" mb={4} />
+            <Text>Course 1: Introduction to Knowledge Sharing</Text>
+          </Box>
+          <Box textAlign="center">
+            <Image src={featureImage2} alt="Course 2" boxSize="150px" mx="auto" mb={4} />
+            <Text>Course 2: Advanced Knowledge Management</Text>
+          </Box>
+          <Box textAlign="center">
+            <Image src={featureImage3} alt="Course 3" boxSize="150px" mx="auto" mb={4} />
+            <Text>Course 3: AI in Knowledge Sharing</Text>
+          </Box>
+        </SimpleGrid>
+      </Container>
+
+      {/* Community Posts Section */}
+      <Container maxW="container.xl" py={10}>
+        <Heading textAlign="center" mb={6}>Community Posts</Heading>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+          <Box textAlign="center">
+            <Text>Post 1: How to effectively share knowledge</Text>
+          </Box>
+          <Box textAlign="center">
+            <Text>Post 2: Best practices for knowledge management</Text>
+          </Box>
+          <Box textAlign="center">
+            <Text>Post 3: Integrating AI with human expertise</Text>
+          </Box>
+        </SimpleGrid>
+      </Container>
+
+      {/* Knowledge Base Articles Section */}
+      <Container maxW="container.xl" py={10}>
+        <Heading textAlign="center" mb={6}>Knowledge Base Articles</Heading>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+          <Box textAlign="center">
+            <Text>Article 1: Introduction to Knowledge Bases</Text>
+          </Box>
+          <Box textAlign="center">
+            <Text>Article 2: Creating Effective Knowledge Bases</Text>
+          </Box>
+          <Box textAlign="center">
+            <Text>Article 3: Managing Knowledge Bases</Text>
+          </Box>
+        </SimpleGrid>
+      </Container>
+
       {/* Testimonials Section */}
       <Box bg="gray.100" py={10}>
         <Container maxW="container.md">
