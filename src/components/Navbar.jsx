@@ -1,5 +1,5 @@
 import { Box, Flex, Link, Spacer, Heading, Image, Input, InputGroup, InputRightElement, IconButton } from '@chakra-ui/react';
-import { SearchIcon } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import { useState } from 'react';
 import logo from '../assets/logo.png'; // Assuming you have a logo image in the assets folder
 import { Link as RouterLink } from 'react-router-dom';
@@ -31,7 +31,7 @@ const Navbar = () => {
             h="1.75rem"
             size="sm"
             onClick={handleSearch}
-            icon={<SearchIcon />}
+            icon={<FaSearch />}
             aria-label="Search"
           />
         </InputRightElement>
