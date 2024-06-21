@@ -12,11 +12,13 @@ const Upload = () => {
 
   return (
     <Box p={4}>
-      <Heading>Upload Document</Heading>
-      <VStack spacing={4} align="stretch">
-        <Input placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-        <Textarea placeholder="Content" value={content} onChange={(e) => setContent(e.target.value)} />
-        <Button colorScheme="teal" onClick={handleUpload}>Upload</Button>
+      <Heading fontSize="2xl" color="teal.500" textShadow="1px 1px #ccc">Upload Document</Heading>
+      <VStack spacing={4} align="stretch" bgImage="url('/path/to/background.jpg')" bgSize="cover" p={8} borderRadius="md">
+        <Box display="grid" gridTemplateColumns="1fr" gap={4}>
+          <Input placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} fontSize="lg" lineHeight="tall" />
+          <Textarea placeholder="Content" value={content} onChange={(e) => setContent(e.target.value)} fontSize="lg" lineHeight="tall" />
+        </Box>
+        <Button colorScheme="teal" onClick={handleUpload} _hover={{ bg: "teal.600" }}>Upload</Button>
       </VStack>
     </Box>
   );

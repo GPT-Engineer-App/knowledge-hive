@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack, Flex, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack, Flex, Image, Grid } from '@chakra-ui/react';
 import featureImage1 from '../assets/feature1.jpg'; // Assuming you have feature images in the assets folder
 import featureImage2 from '../assets/feature2.jpg';
 import featureImage3 from '../assets/feature3.jpg';
@@ -6,27 +6,64 @@ import featureImage3 from '../assets/feature3.jpg';
 const About = () => (
   <Box p={4}>
     <Flex direction="column" align="center" justify="center" p={10}>
-      <Heading mb={4}>About Our Knowledge Sharing Platform</Heading>
-      <Text fontSize="lg" mb={6}>
+      <Heading 
+        mb={4} 
+        fontSize="4xl" 
+        color="teal.500" 
+        textShadow="1px 1px #000000"
+      >
+        About Our Knowledge Sharing Platform
+      </Heading>
+      <Text fontSize="xl" mb={6} lineHeight="tall">
         Our platform is designed to facilitate the creation and sharing of knowledge. Whether you are an individual looking to share your expertise or an organization aiming to manage a knowledge base, our platform provides the tools you need.
       </Text>
     </Flex>
-    <Box bg="gray.100" p={10} borderRadius="md">
+    <Box 
+      bgImage="url('/path/to/background.jpg')" 
+      bgSize="cover" 
+      bgPosition="center" 
+      p={10} 
+      borderRadius="md"
+    >
       <Heading size="lg" textAlign="center" mb={4}>Core Features</Heading>
-      <VStack spacing={5}>
-        <Flex align="center">
-          <Image src={featureImage1} alt="Feature 1" boxSize="100px" mr={4} />
-          <Text>Knowledge Base Management: Create public or private knowledge bases.</Text>
-        </Flex>
-        <Flex align="center">
-          <Image src={featureImage2} alt="Feature 2" boxSize="100px" mr={4} />
-          <Text>Expert Resources: Integrate AI and human experts.</Text>
-        </Flex>
-        <Flex align="center">
-          <Image src={featureImage3} alt="Feature 3" boxSize="100px" mr={4} />
-          <Text>Q&A System: Real-time Q&A feature.</Text>
-        </Flex>
-      </VStack>
+      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+        <Box 
+          p={4} 
+          bg="white" 
+          borderRadius="md" 
+          boxShadow="md" 
+          _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
+        >
+          <Flex align="center">
+            <Image src={featureImage1} alt="Feature 1" boxSize="100px" mr={4} />
+            <Text fontSize="lg">Knowledge Base Management: Create public or private knowledge bases.</Text>
+          </Flex>
+        </Box>
+        <Box 
+          p={4} 
+          bg="white" 
+          borderRadius="md" 
+          boxShadow="md" 
+          _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
+        >
+          <Flex align="center">
+            <Image src={featureImage2} alt="Feature 2" boxSize="100px" mr={4} />
+            <Text fontSize="lg">Expert Resources: Integrate AI and human experts.</Text>
+          </Flex>
+        </Box>
+        <Box 
+          p={4} 
+          bg="white" 
+          borderRadius="md" 
+          boxShadow="md" 
+          _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
+        >
+          <Flex align="center">
+            <Image src={featureImage3} alt="Feature 3" boxSize="100px" mr={4} />
+            <Text fontSize="lg">Q&A System: Real-time Q&A feature.</Text>
+          </Flex>
+        </Box>
+      </Grid>
     </Box>
   </Box>
 );
