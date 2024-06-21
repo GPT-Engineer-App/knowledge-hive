@@ -18,7 +18,7 @@ const Login = () => {
       <Heading mb={4}>Login</Heading>
       <VStack spacing={4} align="stretch">
         <SupabaseAuthUI />
-        <Text>Don't have an account? Sign up above.</Text>
+        <Text>Don't have an account? Sign up below.</Text>
       </VStack>
     </Box>
   );
