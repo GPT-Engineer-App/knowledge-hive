@@ -1,4 +1,5 @@
 import { Box, Flex, Link, Spacer, Heading, Image, Input, InputGroup, InputRightElement, IconButton, VStack, Text } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import { useState } from 'react';
 import logo from '../assets/logo.png'; // Assuming you have a logo image in the assets folder
@@ -6,12 +7,12 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
 
   const [showCourses, setShowCourses] = useState(false);
 
   const handleSearch = () => {
-    // Logic to handle search
-    console.log(`Searching for: ${searchQuery}`);
+    navigate('/search', { state: { query: searchQuery } });
   };
 
   return (
