@@ -1,8 +1,7 @@
-import { Box, Heading, VStack, Text } from '@chakra-ui/react';
+import { Box, Heading, VStack, Button, Text } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { SupabaseAuthUI } from '../integrations/supabase/auth';
+import { useSupabaseAuth, SupabaseAuthUI } from '../integrations/supabase/auth.jsx';
 import { useEffect } from 'react';
-import { useSupabaseAuth } from '../hooks/useSupabaseAuth';
 
 const Login = () => {
   const { session } = useSupabaseAuth();
@@ -18,12 +17,8 @@ const Login = () => {
     <Box p={4}>
       <Heading mb={4}>Login</Heading>
       <VStack spacing={4} align="stretch">
-        <Box>
-          <Box>
-            <SupabaseAuthUI />
-            <Text>Don't have an account? Sign up above.</Text>
-          </Box>
-        </Box>
+        <SupabaseAuthUI />
+        <Text>Don't have an account? Sign up above.</Text>
       </VStack>
     </Box>
   );
