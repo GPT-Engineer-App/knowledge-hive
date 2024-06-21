@@ -1,10 +1,32 @@
-import { Box, Heading, VStack, Text, Button, SimpleGrid, Image } from '@chakra-ui/react';
+import { Box, Heading, VStack, Text, Button, SimpleGrid, Image, Flex, Badge, Icon } from '@chakra-ui/react';
+import { FaStar, FaRegClock, FaUserGraduate } from 'react-icons/fa';
 
 const Courses = () => {
   const courses = [
-    { title: 'Course 1', description: 'Description for course 1', image: 'path/to/image1.jpg' },
-    { title: 'Course 2', description: 'Description for course 2', image: 'path/to/image2.jpg' },
-    { title: 'Course 3', description: 'Description for course 3', image: 'path/to/image3.jpg' },
+    { 
+      title: 'Course 1', 
+      description: 'Description for course 1', 
+      image: 'path/to/image1.jpg',
+      rating: 4.5,
+      duration: '10 hours',
+      students: 1200
+    },
+    { 
+      title: 'Course 2', 
+      description: 'Description for course 2', 
+      image: 'path/to/image2.jpg',
+      rating: 4.7,
+      duration: '8 hours',
+      students: 950
+    },
+    { 
+      title: 'Course 3', 
+      description: 'Description for course 3', 
+      image: 'path/to/image3.jpg',
+      rating: 4.8,
+      duration: '12 hours',
+      students: 1500
+    },
   ];
 
   return (
@@ -25,6 +47,18 @@ const Courses = () => {
             <Box p={6}>
               <Heading size="md" fontSize="2xl">{course.title}</Heading>
               <Text mt={4} fontSize="lg" lineHeight="tall">{course.description}</Text>
+              <Flex mt={4} align="center">
+                <Icon as={FaStar} color="yellow.400" />
+                <Text ml={2} fontSize="lg">{course.rating}</Text>
+              </Flex>
+              <Flex mt={2} align="center">
+                <Icon as={FaRegClock} color="gray.500" />
+                <Text ml={2} fontSize="lg">{course.duration}</Text>
+              </Flex>
+              <Flex mt={2} align="center">
+                <Icon as={FaUserGraduate} color="gray.500" />
+                <Text ml={2} fontSize="lg">{course.students} students</Text>
+              </Flex>
               <Button colorScheme="teal" mt={4}>Enroll Now</Button>
             </Box>
           </Box>
