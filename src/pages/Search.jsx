@@ -1,13 +1,13 @@
-```jsx
 import { Box, Heading, VStack, Input, Button, Text, Grid, Flex, Checkbox, Select, SimpleGrid, Image } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+
 const Search = () => {
   const location = useLocation();
   const [query, setQuery] = useState(location.state?.query || '');
-    const [results, setResults] = useState([]);
+  const [results, setResults] = useState([]);
 
-    const handleSearch = () => {
+  const handleSearch = () => {
     if (!query.trim()) {
       setResults([]);
       return;
