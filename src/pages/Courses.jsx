@@ -8,7 +8,7 @@ const Courses = () => {
   ];
 
   return (
-    <Box p={4} bgImage="url('path/to/background.jpg')" bgSize="cover" bgPosition="center">
+    <Box p={4} bgImage="url('/images/knowledge-sharing.jpg')" bgSize="cover" bgPosition="center">
       <Heading fontSize="4xl" color="white" textShadow="1px 1px 2px rgba(0, 0, 0, 0.7)">
         Courses
       </Heading>
@@ -19,7 +19,7 @@ const Courses = () => {
             borderWidth="1px"
             borderRadius="lg"
             overflow="hidden"
-            _hover={{ transform: 'scale(1.05)', transition: 'transform 0.3s' }}
+            _hover={{ transform: 'scale(1.05)', transition: 'transform 0.3s', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
           >
             <Image src={course.image} alt={course.title} />
             <Box p={6}>

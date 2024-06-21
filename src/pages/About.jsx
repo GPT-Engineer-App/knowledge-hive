@@ -10,7 +10,7 @@ const About = () => (
         mb={4} 
         fontSize="4xl" 
         color="teal.500" 
-        textShadow="1px 1px #000000"
+        textShadow="1px 1px 2px rgba(0, 0, 0, 0.3)"
       >
         About Our Knowledge Sharing Platform
       </Heading>
@@ -19,7 +19,7 @@ const About = () => (
       </Text>
     </Flex>
     <Box 
-      bgImage="url('/path/to/background.jpg')" 
+      bgImage="url('/images/knowledge-sharing.jpg')" 
       bgSize="cover" 
       bgPosition="center" 
       p={10} 
@@ -32,7 +32,7 @@ const About = () => (
           bg="white" 
           borderRadius="md" 
           boxShadow="md" 
-          _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
+          _hover={{ transform: 'scale(1.1)', transition: '0.3s', boxShadow: 'lg' }}
         >
           <Flex align="center">
             <Image src={featureImage1} alt="Feature 1" boxSize="100px" mr={4} />
@@ -44,7 +44,7 @@ const About = () => (
           bg="white" 
           borderRadius="md" 
           boxShadow="md" 
-          _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
+          _hover={{ transform: 'scale(1.1)', transition: '0.3s', boxShadow: 'lg' }}
         >
           <Flex align="center">
             <Image src={featureImage2} alt="Feature 2" boxSize="100px" mr={4} />
@@ -56,7 +56,7 @@ const About = () => (
           bg="white" 
           borderRadius="md" 
           boxShadow="md" 
-          _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
+          _hover={{ transform: 'scale(1.1)', transition: '0.3s', boxShadow: 'lg' }}
         >
           <Flex align="center">
             <Image src={featureImage3} alt="Feature 3" boxSize="100px" mr={4} />
