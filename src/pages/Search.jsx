@@ -1,20 +1,30 @@
 import { Box, Heading, VStack, Input, Button, Text, Grid, Flex, Checkbox, Select, SimpleGrid, Image } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Search = () => {
-  const [query, setQuery] = useState('');
+  const location = useLocation();
+  const [query, setQuery] = useState(location.state?.query || '');
   const [results, setResults] = useState([]);
 
   const handleSearch = () => {
-    // Logic to perform search
+    if (!query.trim()) {
+      setResults([]);
+      return;
+    }
     const newResults = [
       { title: 'Course 1', description: 'Description for course 1', image: 'https://via.placeholder.com/150', rating: 4.7, reviews: 1300, type: 'course' },
       { title: 'Course 2', description: 'Description for course 2', image: 'https://via.placeholder.com/150', rating: 4.8, reviews: 4100, type: 'course' },
       { title: 'Column 1', description: 'Description for column 1', image: 'https://via.placeholder.com/150', rating: 4.7, reviews: 4500, type: 'column' },
     ];
     setResults(newResults);
-    setQuery('');
   };
+
+  useEffect(() => {
+    if (query) {
+      handleSearch();
+    }
+  }, [query]);
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -73,6 +83,7 @@ const Search = () => {
               <option value="most-popular">Sort by: Most Popular</option>
             </Select>
           </Flex>
+          {results.length === 0 && <Text>No results found for "{query}".</Text>}
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
             {results.map((result, index) => (
               <Box key={index} borderWidth="1px" borderRadius="lg" overflow="hidden">
