@@ -11,6 +11,7 @@ import Community from "./pages/Community.jsx";
 import Search from "./pages/Search.jsx";
 import Recommendations from "./pages/Recommendations.jsx";
 import AccessControl from "./pages/AccessControl.jsx";
+import CourseDetails from "./pages/CourseDetails.jsx"; // Import the new CourseDetails component
 
 function App() {
   return (
@@ -20,10 +21,11 @@ function App() {
         <Route exact path="/" element={<Index />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
-      <Route exact path="/courses" element={<Courses />} /> {/* Add the new route */}
+        <Route exact path="/courses" element={<Courses />} /> {/* Add the new route */}
         <Route exact path="/community" element={<Community />} />
         <Route exact path="/knowledge-base" element={<KnowledgeBase />} />
         <Route exact path="/qa" element={<QA />} />
+        <Route exact path="/course-details" element={<CourseDetails />} /> {/* Add the new route for CourseDetails */}
       </Routes>
     </Router>
   );
