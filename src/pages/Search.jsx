@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Input, Button, Text, Grid } from '@chakra-ui/react';
+import { Box, Heading, VStack, Input, Button, Text, Grid, Flex, Checkbox, Select, SimpleGrid, Image } from '@chakra-ui/react';
 import { useState } from 'react';
 
 const Search = () => {
@@ -13,15 +13,14 @@ const Search = () => {
   };
 
   return (
-    <Box p={4} bgImage="url('/path/to/background.jpg')" bgSize="cover" bgPosition="center">
-      <Heading fontSize="3xl" color="teal.500" textShadow="1px 1px 2px rgba(0, 0, 0, 0.3)">
-        Advanced Search
-      </Heading>
-      <Grid templateColumns="1fr auto" gap={4} alignItems="center" mt={4}>
+    <Box p={4}>
+      <Flex justify="center" mb={4}>
         <Input 
           placeholder="Search..." 
           value={query} 
           onChange={(e) => setQuery(e.target.value)} 
+          width="50%"
+          mr={2}
         />
         <Button 
           colorScheme="teal" 
@@ -30,14 +29,67 @@ const Search = () => {
         >
           Search
         </Button>
-      </Grid>
-      <VStack spacing={4} align="stretch" mt={4}>
-        {results.map((result, index) => (
-          <Text key={index} fontSize="lg" lineHeight="tall" spacing={2}>
-            {result}
-          </Text>
-        ))}
-      </VStack>
+      </Flex>
+      <Flex>
+        <Box width="20%" p={4}>
+          <Heading size="md" mb={4}>Filter By</Heading>
+          <VStack align="start" spacing={2}>
+            <Heading size="sm">Topic</Heading>
+            <Checkbox>Data Science</Checkbox>
+            <Checkbox>Business</Checkbox>
+            <Checkbox>Computer Science</Checkbox>
+            <Checkbox>Information Technology</Checkbox>
+            <Text color="teal.500" cursor="pointer">Show more</Text>
+            <Heading size="sm">Language</Heading>
+            <Checkbox>English</Checkbox>
+            <Checkbox>French</Checkbox>
+            <Checkbox>Spanish</Checkbox>
+            <Checkbox>Portuguese</Checkbox>
+            <Text color="teal.500" cursor="pointer">Show more</Text>
+            <Heading size="sm">Product</Heading>
+            <Checkbox>Guided Projects</Checkbox>
+            <Checkbox>Courses</Checkbox>
+            <Checkbox>Specializations</Checkbox>
+            <Checkbox>Professional Certificates</Checkbox>
+          </VStack>
+        </Box>
+        <Box width="80%" p={4}>
+          <Flex justify="space-between" mb={4}>
+            <Text fontSize="lg">"ai" has 4,348 results</Text>
+            <Select width="200px">
+              <option value="best-match">Sort by: Best Match</option>
+              <option value="highest-rated">Sort by: Highest Rated</option>
+              <option value="most-popular">Sort by: Most Popular</option>
+            </Select>
+          </Flex>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+            <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
+              <Image src="https://via.placeholder.com/150" alt="Course 1" />
+              <Box p={4}>
+                <Heading size="md">Course 1</Heading>
+                <Text mt={2}>Description for course 1</Text>
+                <Text mt={2} color="gray.500">4.7 (1.3k reviews)</Text>
+              </Box>
+            </Box>
+            <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
+              <Image src="https://via.placeholder.com/150" alt="Course 2" />
+              <Box p={4}>
+                <Heading size="md">Course 2</Heading>
+                <Text mt={2}>Description for course 2</Text>
+                <Text mt={2} color="gray.500">4.8 (4.1k reviews)</Text>
+              </Box>
+            </Box>
+            <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
+              <Image src="https://via.placeholder.com/150" alt="Course 3" />
+              <Box p={4}>
+                <Heading size="md">Course 3</Heading>
+                <Text mt={2}>Description for course 3</Text>
+                <Text mt={2} color="gray.500">4.7 (4.5k reviews)</Text>
+              </Box>
+            </Box>
+          </SimpleGrid>
+        </Box>
+      </Flex>
     </Box>
   );
 };
