@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Input, Button, Select } from '@chakra-ui/react';
+import { Box, Heading, VStack, Input, Button, Select, Grid } from '@chakra-ui/react';
 import { useState } from 'react';
 
 const AccessControl = () => {
@@ -11,16 +11,51 @@ const AccessControl = () => {
   };
 
   return (
-    <Box p={4}>
-      <Heading>Simplified Access Control</Heading>
-      <VStack spacing={4} align="stretch">
-        <Input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <Select value={role} onChange={(e) => setRole(e.target.value)}>
+    <Box 
+      p={4} 
+      bgImage="url('/path/to/background.jpg')" 
+      bgSize="cover" 
+      bgPosition="center"
+    >
+      <Heading 
+        fontSize="2xl" 
+        color="teal.500" 
+        textShadow="1px 1px 2px rgba(0, 0, 0, 0.2)"
+      >
+        Simplified Access Control
+      </Heading>
+      <Grid 
+        templateColumns="1fr" 
+        gap={4} 
+        alignItems="center" 
+        mt={4}
+      >
+        <Input 
+          placeholder="Email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+          fontSize="lg" 
+          lineHeight="tall"
+        />
+        <Select 
+          value={role} 
+          onChange={(e) => setRole(e.target.value)} 
+          fontSize="lg" 
+          lineHeight="tall"
+        >
           <option value="editor">Editor</option>
           <option value="viewer">Viewer</option>
         </Select>
-        <Button colorScheme="teal" onClick={handleInvite}>Invite</Button>
-      </VStack>
+        <Button 
+          colorScheme="teal" 
+          onClick={handleInvite} 
+          _hover={{ bg: 'teal.600' }}
+          fontSize="lg" 
+          lineHeight="tall"
+        >
+          Invite
+        </Button>
+      </Grid>
     </Box>
   );
 };

@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Text } from '@chakra-ui/react';
+import { Box, Heading, Grid, GridItem, Text } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 
 const Recommendations = () => {
@@ -15,13 +15,24 @@ const Recommendations = () => {
   }, []);
 
   return (
-    <Box p={4}>
-      <Heading>Personalized Learning Recommendations</Heading>
-      <VStack spacing={4} align="stretch">
+    <Box p={4} bgImage="url('/path/to/background.jpg')" bgSize="cover" bgPosition="center">
+      <Heading fontSize="2xl" color="teal.500" textShadow="1px 1px #000">
+        Personalized Learning Recommendations
+      </Heading>
+      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
         {recommendations.map((rec, index) => (
-          <Text key={index}>{rec}</Text>
+          <GridItem 
+            key={index} 
+            p={4} 
+            bg="white" 
+            boxShadow="md" 
+            borderRadius="md" 
+            _hover={{ transform: 'scale(1.05)', transition: '0.3s' }}
+          >
+            <Text fontSize="lg" lineHeight="tall" spacing={2}>{rec}</Text>
+          </GridItem>
         ))}
-      </VStack>
+      </Grid>
     </Box>
   );
 };

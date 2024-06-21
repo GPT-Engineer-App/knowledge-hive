@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Text, Button, Input } from '@chakra-ui/react';
+import { Box, Heading, VStack, Text, Button, Input, Grid } from '@chakra-ui/react';
 import { useState } from 'react';
 
 const Community = () => {
@@ -12,15 +12,31 @@ const Community = () => {
   };
 
   return (
-    <Box p={4}>
-      <Heading>Community Interaction</Heading>
-      <VStack spacing={4} align="stretch">
-        <Input placeholder="Share something..." value={post} onChange={(e) => setPost(e.target.value)} />
-        <Button colorScheme="teal" onClick={handlePost}>Post</Button>
-        {posts.map((p, index) => (
-          <Text key={index}>{p}</Text>
-        ))}
-      </VStack>
+    <Box p={4} bgImage="url('/path/to/background.jpg')" bgSize="cover" bgPosition="center">
+      <Heading fontSize="3xl" color="teal.500" textShadow="1px 1px #000">
+        Community Interaction
+      </Heading>
+      <Grid templateColumns="1fr" gap={4} alignItems="start">
+        <Input 
+          placeholder="Share something..." 
+          value={post} 
+          onChange={(e) => setPost(e.target.value)} 
+        />
+        <Button 
+          colorScheme="teal" 
+          onClick={handlePost} 
+          _hover={{ bg: 'teal.600' }}
+        >
+          Post
+        </Button>
+        <VStack spacing={4} align="stretch">
+          {posts.map((p, index) => (
+            <Text key={index} fontSize="lg" lineHeight="tall" spacing={2}>
+              {p}
+            </Text>
+          ))}
+        </VStack>
+      </Grid>
     </Box>
   );
 };

@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Input, Button, Text } from '@chakra-ui/react';
+import { Box, Heading, VStack, Input, Button, Text, Grid } from '@chakra-ui/react';
 import { useState } from 'react';
 
 const QA = () => {
@@ -13,15 +13,15 @@ const QA = () => {
   };
 
   return (
-    <Box p={4}>
-      <Heading>Real-time Q&A</Heading>
-      <VStack spacing={4} align="stretch">
+    <Box p={4} bgImage="url('/path/to/background.jpg')" bgSize="cover" bgPosition="center">
+      <Heading fontSize="2xl" color="teal.500" textShadow="1px 1px #ccc">Real-time Q&A</Heading>
+      <Grid templateColumns="1fr" gap={4} alignItems="center">
         <Input placeholder="Ask a question..." value={question} onChange={(e) => setQuestion(e.target.value)} />
-        <Button colorScheme="teal" onClick={handleAsk}>Ask</Button>
+        <Button colorScheme="teal" onClick={handleAsk} _hover={{ bg: "teal.600" }}>Ask</Button>
         {answers.map((answer, index) => (
-          <Text key={index}>{answer}</Text>
+          <Text key={index} fontSize="lg" lineHeight="tall" spacing={2}>{answer}</Text>
         ))}
-      </VStack>
+      </Grid>
     </Box>
   );
 };
