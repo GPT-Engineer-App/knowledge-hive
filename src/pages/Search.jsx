@@ -8,12 +8,18 @@ const Search = () => {
   const handleSearch = () => {
     // Logic to perform search
     const newResults = [
-      { title: 'Course 1', description: 'Description for course 1', image: 'https://via.placeholder.com/150', rating: 4.7, reviews: 1300 },
-      { title: 'Course 2', description: 'Description for course 2', image: 'https://via.placeholder.com/150', rating: 4.8, reviews: 4100 },
-      { title: 'Course 3', description: 'Description for course 3', image: 'https://via.placeholder.com/150', rating: 4.7, reviews: 4500 },
+      { title: 'Course 1', description: 'Description for course 1', image: 'https://via.placeholder.com/150', rating: 4.7, reviews: 1300, type: 'course' },
+      { title: 'Course 2', description: 'Description for course 2', image: 'https://via.placeholder.com/150', rating: 4.8, reviews: 4100, type: 'course' },
+      { title: 'Column 1', description: 'Description for column 1', image: 'https://via.placeholder.com/150', rating: 4.7, reviews: 4500, type: 'column' },
     ];
     setResults(newResults);
     setQuery('');
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
   };
 
   return (
@@ -23,6 +29,7 @@ const Search = () => {
           placeholder="Search..." 
           value={query} 
           onChange={(e) => setQuery(e.target.value)} 
+          onKeyPress={handleKeyPress}
           width="50%"
           mr={2}
         />
@@ -59,7 +66,7 @@ const Search = () => {
         </Box>
         <Box width="80%" p={4}>
           <Flex justify="space-between" mb={4}>
-            <Text fontSize="lg">"ai" has 4,348 results</Text>
+            <Text fontSize="lg">"{query}" has {results.length} results</Text>
             <Select width="200px">
               <option value="best-match">Sort by: Best Match</option>
               <option value="highest-rated">Sort by: Highest Rated</option>
@@ -74,6 +81,7 @@ const Search = () => {
                   <Heading size="md">{result.title}</Heading>
                   <Text mt={2}>{result.description}</Text>
                   <Text mt={2} color="gray.500">{result.rating} ({result.reviews} reviews)</Text>
+                  <Text mt={2} color="teal.500">{result.type === 'course' ? 'Course' : 'Column'}</Text>
                 </Box>
               </Box>
             ))}
