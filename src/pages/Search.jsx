@@ -7,8 +7,12 @@ const Search = () => {
 
   const handleSearch = () => {
     // Logic to perform search
-    const newResult = `Result for: ${query}`;
-    setResults([...results, newResult]);
+    const newResults = [
+      { title: 'Course 1', description: 'Description for course 1', image: 'https://via.placeholder.com/150', rating: 4.7, reviews: 1300 },
+      { title: 'Course 2', description: 'Description for course 2', image: 'https://via.placeholder.com/150', rating: 4.8, reviews: 4100 },
+      { title: 'Course 3', description: 'Description for course 3', image: 'https://via.placeholder.com/150', rating: 4.7, reviews: 4500 },
+    ];
+    setResults(newResults);
     setQuery('');
   };
 
@@ -63,30 +67,16 @@ const Search = () => {
             </Select>
           </Flex>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-            <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-              <Image src="https://via.placeholder.com/150" alt="Course 1" />
-              <Box p={4}>
-                <Heading size="md">Course 1</Heading>
-                <Text mt={2}>Description for course 1</Text>
-                <Text mt={2} color="gray.500">4.7 (1.3k reviews)</Text>
+            {results.map((result, index) => (
+              <Box key={index} borderWidth="1px" borderRadius="lg" overflow="hidden">
+                <Image src={result.image} alt={result.title} />
+                <Box p={4}>
+                  <Heading size="md">{result.title}</Heading>
+                  <Text mt={2}>{result.description}</Text>
+                  <Text mt={2} color="gray.500">{result.rating} ({result.reviews} reviews)</Text>
+                </Box>
               </Box>
-            </Box>
-            <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-              <Image src="https://via.placeholder.com/150" alt="Course 2" />
-              <Box p={4}>
-                <Heading size="md">Course 2</Heading>
-                <Text mt={2}>Description for course 2</Text>
-                <Text mt={2} color="gray.500">4.8 (4.1k reviews)</Text>
-              </Box>
-            </Box>
-            <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-              <Image src="https://via.placeholder.com/150" alt="Course 3" />
-              <Box p={4}>
-                <Heading size="md">Course 3</Heading>
-                <Text mt={2}>Description for course 3</Text>
-                <Text mt={2} color="gray.500">4.7 (4.5k reviews)</Text>
-              </Box>
-            </Box>
+            ))}
           </SimpleGrid>
         </Box>
       </Flex>

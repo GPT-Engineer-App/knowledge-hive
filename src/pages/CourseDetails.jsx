@@ -1,8 +1,10 @@
 import { Box, Heading, Text, Button, Flex, VStack, Image, Icon } from '@chakra-ui/react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const CourseDetails = ({ course }) => {
+const CourseDetails = () => {
+  const location = useLocation();
+  const { course } = location.state;
   const navigate = useNavigate();
 
   const handleEdit = () => {

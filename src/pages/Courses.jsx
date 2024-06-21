@@ -1,7 +1,9 @@
 import { Box, Heading, VStack, Text, Button, SimpleGrid, Image, Flex, Badge, Icon } from '@chakra-ui/react';
 import { FaStar, FaRegClock, FaUserGraduate } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Courses = () => {
+  const navigate = useNavigate();
   const courses = [
     { 
       title: 'Course 1', 
@@ -29,6 +31,10 @@ const Courses = () => {
     },
   ];
 
+  const handleCourseClick = (course) => {
+    navigate('/course-details', { state: { course } });
+  };
+
   return (
     <Box p={4}>
       <Heading fontSize="4xl" color="teal.500" textShadow="1px 1px 2px rgba(0, 0, 0, 0.7)">
@@ -42,6 +48,7 @@ const Courses = () => {
             borderRadius="lg"
             overflow="hidden"
             _hover={{ transform: 'scale(1.05)', transition: 'transform 0.3s', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}
+            onClick={() => handleCourseClick(course)}
           >
             <Image src={course.image} alt={course.title} />
             <Box p={6}>
