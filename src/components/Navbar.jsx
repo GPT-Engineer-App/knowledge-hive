@@ -1,4 +1,4 @@
-import { Box, Flex, Link, Spacer, Heading, Image, Input, InputGroup, InputRightElement, IconButton } from '@chakra-ui/react';
+import { Box, Flex, Link, Spacer, Heading, Image, Input, InputGroup, InputRightElement, IconButton, VStack, Text } from '@chakra-ui/react';
 import { FaSearch } from 'react-icons/fa';
 import { useState } from 'react';
 import logo from '../assets/logo.png'; // Assuming you have a logo image in the assets folder
@@ -6,6 +6,8 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
+
+  const [showCourses, setShowCourses] = useState(false);
 
   const handleSearch = () => {
     // Logic to handle search
@@ -38,7 +40,18 @@ const Navbar = () => {
       </InputGroup>
       <Flex>
         <Link as={RouterLink} to="/" color="teal.500" mx={2}>Home</Link>
-        <Link as={RouterLink} to="/courses" color="teal.500" mx={2}>Courses</Link>
+        <Box position="relative" onMouseEnter={() => setShowCourses(true)} onMouseLeave={() => setShowCourses(false)}>
+          <Link as={RouterLink} to="/courses" color="teal.500" mx={2}>Courses</Link>
+          {showCourses && (
+            <Box position="absolute" bg="white" boxShadow="md" p={4} borderRadius="md" zIndex="10">
+              <VStack align="start">
+                <Text>Category 1</Text>
+                <Text>Category 2</Text>
+                <Text>Category 3</Text>
+              </VStack>
+            </Box>
+          )}
+        </Box>
         <Link as={RouterLink} to="/community" color="teal.500" mx={2}>Community</Link>
         <Link as={RouterLink} to="/knowledge-base" color="teal.500" mx={2}>Knowledge Base</Link>
         <Link as={RouterLink} to="/qa" color="teal.500" mx={2}>Q&A</Link>

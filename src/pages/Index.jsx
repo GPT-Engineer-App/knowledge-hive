@@ -1,5 +1,6 @@
-import { Container, Text, VStack, Heading, Button, Box, Image, SimpleGrid } from "@chakra-ui/react";
+import { Container, Text, VStack, Heading, Button, Box, Image, SimpleGrid, Flex } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
+import { useState } from "react";
 
 import heroImage from '../assets/hero.jpg'; // Assuming you have a hero image in the assets folder
 
@@ -8,6 +9,8 @@ import featureImage2 from '../assets/feature2.jpg';
 import featureImage3 from '../assets/feature3.jpg';
 
 const Index = () => {
+  const [showCourses, setShowCourses] = useState(false);
+
   return (
     <Box>
       {/* Hero Section */}
@@ -22,7 +25,7 @@ const Index = () => {
       </Box>
 
       {/* Features Section */}
-      <Box bgImage={`url(${heroImage})`} bgSize="cover" bgPosition="center" py={10}>
+      <Box bg="gray.100" py={10}>
         <Container maxW="container.xl">
           <Heading textAlign="center" mb={6} fontSize="3xl">Core Features</Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
@@ -43,28 +46,31 @@ const Index = () => {
       </Box>
 
       {/* Featured Courses Section */}
-      <Box bgImage={`url(${heroImage})`} bgSize="cover" bgPosition="center" py={10}>
+      <Box bg="gray.100" py={10}>
         <Container maxW="container.xl">
           <Heading textAlign="center" mb={6} fontSize="3xl">Featured Courses</Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
-            <Box textAlign="center" p={5} bg="white" borderRadius="md" boxShadow="md" _hover={{ transform: 'scale(1.05)', transition: '0.3s', boxShadow: 'lg' }}>
+            <Box textAlign="center" p={5} bg="white" borderRadius="md" boxShadow="md" _hover={{ transform: 'scale(1.05)', transition: '0.3s', boxShadow: 'lg' }} onMouseEnter={() => setShowCourses(true)} onMouseLeave={() => setShowCourses(false)}>
               <Image src={featureImage1} alt="Course 1" boxSize="150px" mx="auto" mb={4} />
               <Text fontSize="lg" lineHeight="tall">Course 1: Introduction to Knowledge Sharing</Text>
+              {showCourses && <Text fontSize="md" color="gray.500">Category: Basics</Text>}
             </Box>
-            <Box textAlign="center" p={5} bg="white" borderRadius="md" boxShadow="md" _hover={{ transform: 'scale(1.05)', transition: '0.3s', boxShadow: 'lg' }}>
+            <Box textAlign="center" p={5} bg="white" borderRadius="md" boxShadow="md" _hover={{ transform: 'scale(1.05)', transition: '0.3s', boxShadow: 'lg' }} onMouseEnter={() => setShowCourses(true)} onMouseLeave={() => setShowCourses(false)}>
               <Image src={featureImage2} alt="Course 2" boxSize="150px" mx="auto" mb={4} />
               <Text fontSize="lg" lineHeight="tall">Course 2: Advanced Knowledge Management</Text>
+              {showCourses && <Text fontSize="md" color="gray.500">Category: Advanced</Text>}
             </Box>
-            <Box textAlign="center" p={5} bg="white" borderRadius="md" boxShadow="md" _hover={{ transform: 'scale(1.05)', transition: '0.3s', boxShadow: 'lg' }}>
+            <Box textAlign="center" p={5} bg="white" borderRadius="md" boxShadow="md" _hover={{ transform: 'scale(1.05)', transition: '0.3s', boxShadow: 'lg' }} onMouseEnter={() => setShowCourses(true)} onMouseLeave={() => setShowCourses(false)}>
               <Image src={featureImage3} alt="Course 3" boxSize="150px" mx="auto" mb={4} />
               <Text fontSize="lg" lineHeight="tall">Course 3: AI in Knowledge Sharing</Text>
+              {showCourses && <Text fontSize="md" color="gray.500">Category: Technology</Text>}
             </Box>
           </SimpleGrid>
         </Container>
       </Box>
 
       {/* Community Posts Section */}
-      <Box bgImage={`url(${heroImage})`} bgSize="cover" bgPosition="center" py={10}>
+      <Box bg="gray.100" py={10}>
         <Container maxW="container.xl">
           <Heading textAlign="center" mb={6} fontSize="3xl">Community Posts</Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
@@ -82,7 +88,7 @@ const Index = () => {
       </Box>
 
       {/* Knowledge Base Articles Section */}
-      <Box bgImage={`url(${heroImage})`} bgSize="cover" bgPosition="center" py={10}>
+      <Box bg="gray.100" py={10}>
         <Container maxW="container.xl">
           <Heading textAlign="center" mb={6} fontSize="3xl">Knowledge Base Articles</Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
@@ -100,7 +106,7 @@ const Index = () => {
       </Box>
 
       {/* Testimonials Section */}
-      <Box bgImage={`url(${heroImage})`} bgSize="cover" bgPosition="center" py={10}>
+      <Box bg="gray.100" py={10}>
         <Container maxW="container.md">
           <Heading textAlign="center" mb={6} fontSize="3xl">What Our Users Say</Heading>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
@@ -121,7 +127,7 @@ const Index = () => {
       </Box>
 
       {/* Final Call-to-Action Section */}
-      <Box bgImage={`url(${heroImage})`} bgSize="cover" bgPosition="center" py={10}>
+      <Box bg="gray.100" py={10}>
         <Container centerContent maxW="container.md">
           <VStack spacing={4}>
             <Heading fontSize="3xl">Join Our Community</Heading>
