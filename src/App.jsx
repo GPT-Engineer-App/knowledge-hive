@@ -12,6 +12,10 @@ import Search from "./pages/Search.jsx";
 import Recommendations from "./pages/Recommendations.jsx";
 import AccessControl from "./pages/AccessControl.jsx";
 import CourseDetails from "./pages/CourseDetails.jsx"; // Import the new CourseDetails component
+import Events from "./pages/Events.jsx"; // Import the new Events component
+import Login from "./pages/Login.jsx"; // Import the new Login component
+import CreateKnowledge from "./pages/CreateKnowledge.jsx"; // Import the new CreateKnowledge component
+import ProtectedRoute from "./components/ProtectedRoute.jsx"; // Import the new ProtectedRoute component
 
 function App() {
   return (
@@ -26,6 +30,9 @@ function App() {
         <Route exact path="/knowledge-base" element={<KnowledgeBase />} />
         <Route exact path="/qa" element={<QA />} />
         <Route exact path="/course-details" element={<CourseDetails />} /> {/* Add the new route for CourseDetails */}
+        <Route exact path="/events" element={<Events />} /> {/* Add the new route for Events */}
+        <Route exact path="/login" element={<Login />} /> {/* Add the new route for Login */}
+        <Route exact path="/create-knowledge" element={<ProtectedRoute><CreateKnowledge /></ProtectedRoute>} /> {/* Add the new route for CreateKnowledge */}
       </Routes>
     </Router>
   );
