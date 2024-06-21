@@ -4,6 +4,7 @@ import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Navbar from "./components/Navbar.jsx";
 import KnowledgeBase from "./pages/KnowledgeBase.jsx";
+import Courses from "./pages/Courses.jsx"; // Import the new Courses component
 import QA from "./pages/QA.jsx";
 import Upload from "./pages/Upload.jsx";
 import Community from "./pages/Community.jsx";
@@ -19,6 +20,10 @@ function App() {
         <Route exact path="/" element={<Index />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
+      <Route exact path="/courses" element={<Courses />} /> {/* Add the new route */}
+        <Route exact path="/community" element={<Community />} />
+        <Route exact path="/knowledge-base" element={<KnowledgeBase />} />
+        <Route exact path="/qa" element={<QA />} />
       </Routes>
     </Router>
   );

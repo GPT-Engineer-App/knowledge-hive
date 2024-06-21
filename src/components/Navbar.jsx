@@ -3,13 +3,17 @@ import logo from '../assets/logo.png'; // Assuming you have a logo image in the 
 import { Link as RouterLink } from 'react-router-dom';
 
 const Navbar = () => (
-  <Box bg="white" boxShadow="md" p={4}>
-    <Flex align="center">
+  <Box bg="white" boxShadow="md" p={4} w="100%" maxW="1200px" mx="auto">
+    <Flex align="center" wrap="wrap">
       <Image src={logo} alt="Logo" boxSize="50px" />
       <Heading size="md" color="teal.500" ml={4}>Knowledge Sharing Platform</Heading>
       <Spacer />
       <Flex>
         <Link as={RouterLink} to="/" color="teal.500" mx={2}>Home</Link>
+        <Link as={RouterLink} to="/courses" color="teal.500" mx={2}>Courses</Link>
+        <Link as={RouterLink} to="/community" color="teal.500" mx={2}>Community</Link>
+        <Link as={RouterLink} to="/knowledge-base" color="teal.500" mx={2}>Knowledge Base</Link>
+        <Link as={RouterLink} to="/qa" color="teal.500" mx={2}>Q&A</Link>
         <Link as={RouterLink} to="/about" color="teal.500" mx={2}>About</Link>
         <Link as={RouterLink} to="/contact" color="teal.500" mx={2}>Contact</Link>
       </Flex>
