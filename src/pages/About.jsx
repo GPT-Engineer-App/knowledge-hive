@@ -1,4 +1,7 @@
-import { Box, Heading, Text, VStack, Flex } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack, Flex, Image } from '@chakra-ui/react';
+import featureImage1 from '../assets/feature1.jpg'; // Assuming you have feature images in the assets folder
+import featureImage2 from '../assets/feature2.jpg';
+import featureImage3 from '../assets/feature3.jpg';
 
 const About = () => (
   <Box p={4}>
@@ -8,32 +11,20 @@ const About = () => (
         Our platform is designed to facilitate the creation and sharing of knowledge. Whether you are an individual looking to share your expertise or an organization aiming to manage a knowledge base, our platform provides the tools you need.
       </Text>
     </Flex>
-    <Box bg="gray.100" p={10}>
+    <Box bg="gray.100" p={10} borderRadius="md">
       <Heading size="lg" textAlign="center" mb={4}>Core Features</Heading>
       <VStack spacing={5}>
         <Flex align="center">
-          <Text ml={2}>Knowledge Base Management: Create public or private knowledge bases.</Text>
+          <Image src={featureImage1} alt="Feature 1" boxSize="100px" mr={4} />
+          <Text>Knowledge Base Management: Create public or private knowledge bases.</Text>
         </Flex>
         <Flex align="center">
-          <Text ml={2}>Expert Resources: Integrate AI and human experts.</Text>
+          <Image src={featureImage2} alt="Feature 2" boxSize="100px" mr={4} />
+          <Text>Expert Resources: Integrate AI and human experts.</Text>
         </Flex>
         <Flex align="center">
-          <Text ml={2}>Q&A System: Real-time Q&A feature.</Text>
-        </Flex>
-        <Flex align="center">
-          <Text ml={2}>Knowledge Creation and Sharing: Upload documents with AI assistance.</Text>
-        </Flex>
-        <Flex align="center">
-          <Text ml={2}>Community Interaction: Share, comment, and like.</Text>
-        </Flex>
-        <Flex align="center">
-          <Text ml={2}>Advanced Search: Quickly find the knowledge you need.</Text>
-        </Flex>
-        <Flex align="center">
-          <Text ml={2}>Personalized Learning Recommendations: Get personalized content recommendations.</Text>
-        </Flex>
-        <Flex align="center">
-          <Text ml={2}>Simplified Access Control: Invite editors and set access permissions.</Text>
+          <Image src={featureImage3} alt="Feature 3" boxSize="100px" mr={4} />
+          <Text>Q&A System: Real-time Q&A feature.</Text>
         </Flex>
       </VStack>
     </Box>

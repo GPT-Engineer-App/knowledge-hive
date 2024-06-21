@@ -1,9 +1,12 @@
-import { Container, Text, VStack, Heading, Button } from "@chakra-ui/react";
+import { Container, Text, VStack, Heading, Button, Box, Image } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
+
+import heroImage from '../assets/hero.jpg'; // Assuming you have a hero image in the assets folder
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+    <Box bgImage={`url(${heroImage})`} bgSize="cover" bgPosition="center" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
+      <Container centerContent maxW="container.md" bg="rgba(255, 255, 255, 0.8)" p={10} borderRadius="md">
       <VStack spacing={4}>
         <Heading>Welcome to the Knowledge Sharing Platform</Heading>
         <Text fontSize="xl">Your go-to place for creating, sharing, and discovering knowledge.</Text>
@@ -17,6 +20,7 @@ const Index = () => {
         <Button as={RouterLink} to="/access-control" colorScheme="teal" size="lg">Access Control</Button>
       </VStack>
     </Container>
+    </Box>
   );
 };
 
